@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -19,17 +18,17 @@
                         'berry-pink': '#FF85A1',
                         'mango-yellow': '#FFD23F',
                         'mint-green': '#80ED99',
+                        'zolie-purple': '#A78BFA',
                         'dark-text': '#2D2D2D',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 6s ease-in-out 2s infinite',
                         'spin-slow': 'spin 12s linear infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
+                            '50%': { transform: 'translateY(-15px)' },
                         }
                     }
                 }
@@ -37,160 +36,132 @@
         }
     </script>
     <style>
-        .squishy-button:active {
-            transform: scale(0.95);
-        }
-
-        /* Fondo con patrón sutil */
-        .pattern-bg {
-            background-color: #FFFBF5;
-            background-image: radial-gradient(#FF85A1 0.5px, transparent 0.5px), radial-gradient(#FFD23F 0.5px, #FFFBF5 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-        }
+        .squishy:active { transform: scale(0.92); transition: 0.1s; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
+<body class="bg-cream-bg text-dark-text font-body antialiased">
 
-<body class="pattern-bg text-dark-text font-body overflow-x-hidden">
-
-    <nav class="fixed w-full z-50 top-0 px-6 py-4">
-        <div
-            class="max-w-6xl mx-auto bg-white/70 backdrop-blur-lg rounded-full px-6 py-3 flex justify-between items-center shadow-sm">
-            <div class="font-heading text-2xl font-semibold text-berry-pink flex items-center gap-2">
-                🍓 BerryBar
+    <nav class="fixed w-full z-50 top-0 p-4">
+        <div class="max-w-5xl mx-auto bg-white/80 backdrop-blur-xl rounded-2xl md:rounded-full px-5 py-3 flex justify-between items-center shadow-sm border border-white/20">
+            <div class="font-heading text-xl md:text-2xl font-semibold text-berry-pink">
+                ZOLIE <span class="text-mango-yellow">Bar</span>
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-600">
-                <a href="#" class="hover:text-berry-pink transition">Menú</a>
-                <a href="#" class="hover:text-berry-pink transition">Beneficios</a>
-                <a href="#" class="hover:text-berry-pink transition">Nosotros</a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-500">
+                <a href="#menu" class="hover:text-berry-pink transition">Menú</a>
+                <a href="#info" class="hover:text-berry-pink transition">Horarios</a>
+                <a href="#" class="hover:text-berry-pink transition">Servicios</a>
             </div>
-            <div class="flex items-center gap-4">
-                <button
-                    class="bg-berry-pink text-white p-3 rounded-full hover:bg-pink-500 transition shadow-[0_4px_15px_rgba(255,133,161,0.4)] squishy-button relative group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="group-hover:scale-110 transition">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span
-                        class="absolute -top-1 -right-1 bg-mango-yellow text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">2</span>
-                </button>
-            </div>
+            <button class="bg-berry-pink text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest squishy">
+                Pedir
+            </button>
         </div>
     </nav>
 
-    <header class="max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-44 flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2 space-y-6 relative z-10">
-            <span
-                class="inline-block bg-mint-green/20 text-mint-green px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-2">
-                ✨ 100% Natural & Fresh
-            </span>
-            <h1 class="font-heading text-5xl md:text-7xl font-semibold leading-tight">
-                Felicidad líquida en <br> <span class="text-berry-pink">cada sorbo.</span>
-            </h1>
-            <p class="text-lg text-gray-600 max-w-md">
-                Batidos artesanales hechos con fruta real. Sin azúcares añadidos, solo pura buena vibra.
-            </p>
-            <div class="flex gap-4 pt-4">
-                <button
-                    class="bg-berry-pink text-white px-8 py-4 rounded-full font-bold shadow-[0_10px_25px_rgba(255,133,161,0.5)] hover:-translate-y-1 transition-all squishy-button">
-                    Pedir Ahora 😋
-                </button>
-                <button
-                    class="bg-white text-dark-text px-8 py-4 rounded-full font-bold border-2 border-gray-100 hover:border-berry-pink transition squishy-button">
-                    Ver Sabores
-                </button>
-            </div>
-        </div>
-
-        <div class="md:w-1/2 relative">
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-mango-yellow to-berry-pink rounded-full opacity-20 blur-3xl animate-spin-slow -z-10">
+    <header class="relative pt-28 md:pt-44 pb-12 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+            
+            <div class="w-full md:w-1/2 text-center md:text-left z-10 space-y-4 md:space-y-6">
+                <div class="inline-flex items-center gap-2 bg-white px-4 py-1.5 rounded-full shadow-sm border border-gray-100 mb-2">
+                    <span class="text-lg">🐶</span>
+                    <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-500">Pet Friendly & Free WiFi</span>
+                </div>
+                <h1 class="font-heading text-4xl md:text-7xl font-semibold leading-[1.1]">
+                    Energía que <br> <span class="text-berry-pink">te hace brillar.</span>
+                </h1>
+                <p class="text-gray-500 text-sm md:text-lg max-w-sm mx-auto md:mx-0">
+                    Batidos, Waffles, Frappés y Tés preparados con amor para tu día a día.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 pt-4 items-center justify-center md:justify-start">
+                    <button class="w-full sm:w-auto bg-berry-pink text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-berry-pink/20 squishy">
+                        Ver Menú Completo 😋
+                    </button>
+                    <button class="w-full sm:w-auto bg-white text-dark-text px-8 py-4 rounded-2xl font-bold border border-gray-200 squishy">
+                        Ubicación 📍
+                    </button>
+                </div>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?q=80&w=1974&auto=format&fit=crop"
-                alt="Berry Smoothie"
-                class="relative z-10 w-full max-w-md mx-auto rounded-[3rem] shadow-2xl animate-float object-cover h-[500px]">
-
-            <div class="absolute top-10 -left-10 text-4xl animate-float-delayed">🍓</div>
-            <div class="absolute bottom-20 -right-5 text-4xl animate-float">🍋</div>
-            <div class="absolute top-40 right-10 text-3xl animate-float-delayed opacity-50">✨</div>
+            <div class="w-full md:w-1/2 mt-12 md:mt-0 relative flex justify-center">
+                <div class="absolute w-[280px] h-[280px] md:w-[450px] md:h-[450px] bg-mango-yellow/20 rounded-full blur-3xl animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=1000&auto=format&fit=crop" 
+                     class="relative z-10 w-64 md:w-96 rounded-[3rem] shadow-2xl animate-float" alt="Zolie Smoothie">
+                <div class="absolute top-0 right-10 text-4xl animate-bounce">🧇</div>
+                <div class="absolute bottom-10 left-10 text-4xl animate-bounce delay-75">🍵</div>
+            </div>
         </div>
     </header>
 
-    <section class="max-w-6xl mx-auto px-6 py-20">
-        <div class="text-center mb-12">
-            <h2 class="font-heading text-4xl font-semibold mb-4">Los Favoritos del Mes 💖</h2>
-            <p class="text-gray-600">Directo de la licuadora a tu corazón.</p>
+    <section id="menu" class="py-10">
+        <div class="px-6 mb-6">
+            <h2 class="font-heading text-2xl md:text-3xl font-semibold">¿Qué se te antoja?</h2>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <div
-                class="bg-white rounded-[2rem] p-6 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-2 cursor-pointer">
-                <div class="relative overflow-hidden rounded-[1.5rem] mb-6 h-64">
-                    <div class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-sm z-10">❤️</div>
-                    <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=1974&auto=format&fit=crop"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                        alt="Pink Paradise">
-                </div>
-                <h3 class="font-heading text-xl font-semibold mb-2">Pink Paradise 🌸</h3>
-                <p class="text-gray-500 text-sm mb-4">Fresa, Banana, Leche de Almendras.</p>
-                <div class="flex justify-between items-center">
-                    <span class="font-heading text-xl font-bold text-berry-pink">$8.99</span>
-                    <button
-                        class="bg-mango-yellow text-dark-text px-5 py-2 rounded-full font-bold text-sm hover:bg-yellow-400 transition squishy-button flex items-center gap-1">
-                        Agregar 🛒
-                    </button>
-                </div>
+        <div class="flex overflow-x-auto gap-4 px-6 pb-4 hide-scrollbar">
+            <div class="flex-shrink-0 w-32 h-32 bg-white rounded-3xl p-4 flex flex-col items-center justify-center shadow-sm border border-gray-50 group hover:bg-berry-pink transition cursor-pointer">
+                <span class="text-3xl mb-2 group-hover:scale-110 transition">🥤</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white">Batidos</span>
             </div>
-
-            <div
-                class="bg-white rounded-[2rem] p-6 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-2 cursor-pointer relative border-2 border-berry-pink">
-                <div
-                    class="absolute -top-4 left-1/2 -translate-x-1/2 bg-berry-pink text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest">
-                    POPULAR</div>
-                <div class="relative overflow-hidden rounded-[1.5rem] mb-6 h-64">
-                    <div class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-sm z-10">❤️</div>
-                    <img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?q=80&w=2070&auto=format&fit=crop"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                        alt="Sunshine Mango">
-                </div>
-                <h3 class="font-heading text-xl font-semibold mb-2">Sunshine Mango ☀️</h3>
-                <p class="text-gray-500 text-sm mb-4">Mango, Piña, Yogur Griego, Coco.</p>
-                <div class="flex justify-between items-center">
-                    <span class="font-heading text-xl font-bold text-berry-pink">$9.50</span>
-                    <button
-                        class="bg-berry-pink text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-pink-500 transition squishy-button flex items-center gap-1">
-                        Agregar 🛒
-                    </button>
-                </div>
+            <div class="flex-shrink-0 w-32 h-32 bg-white rounded-3xl p-4 flex flex-col items-center justify-center shadow-sm border border-gray-50 group hover:bg-mango-yellow transition cursor-pointer">
+                <span class="text-3xl mb-2 group-hover:scale-110 transition">🧇</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white">Waffles</span>
             </div>
-
-            <div
-                class="bg-white rounded-[2rem] p-6 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-2 cursor-pointer">
-                <div class="relative overflow-hidden rounded-[1.5rem] mb-6 h-64">
-                    <div class="absolute top-4 right-4 bg-white p-2 rounded-full shadow-sm z-10">❤️</div>
-                    <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?q=80&w=1974&auto=format&fit=crop"
-                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                        alt="Green Glow">
-                </div>
-                <h3 class="font-heading text-xl font-semibold mb-2">Green Glow 🥑</h3>
-                <p class="text-gray-500 text-sm mb-4">Espinaca, Manzana, Aguacate, Matcha.</p>
-                <div class="flex justify-between items-center">
-                    <span class="font-heading text-xl font-bold text-berry-pink">$10.00</span>
-                    <button
-                        class="bg-mango-yellow text-dark-text px-5 py-2 rounded-full font-bold text-sm hover:bg-yellow-400 transition squishy-button flex items-center gap-1">
-                        Agregar 🛒
-                    </button>
-                </div>
+            <div class="flex-shrink-0 w-32 h-32 bg-white rounded-3xl p-4 flex flex-col items-center justify-center shadow-sm border border-gray-50 group hover:bg-zolie-purple transition cursor-pointer">
+                <span class="text-3xl mb-2 group-hover:scale-110 transition">🧊</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white">Frappés</span>
             </div>
-
+            <div class="flex-shrink-0 w-32 h-32 bg-white rounded-3xl p-4 flex flex-col items-center justify-center shadow-sm border border-gray-50 group hover:bg-mint-green transition cursor-pointer">
+                <span class="text-3xl mb-2 group-hover:scale-110 transition">🍵</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white">Tés</span>
+            </div>
         </div>
     </section>
 
-</body>
+    <section id="info" class="px-6 py-10">
+        <div class="max-w-5xl mx-auto bg-dark-text text-white rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-10 opacity-10 text-9xl">⏰</div>
+            <div class="relative z-10 grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="font-heading text-3xl font-semibold mb-6 text-mango-yellow">Horarios de Energía</h3>
+                    <ul class="space-y-4 text-sm md:text-base">
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Lunes a Sábado</span>
+                            <span class="font-bold uppercase text-mint-green text-xs">8:00 AM - 9:00 PM</span>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Domingo</span>
+                            <span class="font-bold uppercase text-mint-green text-xs">9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex flex-col justify-center gap-4">
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Visítanos</p>
+                        <p class="text-sm">ZOLIE Energy Bar — El lugar perfecto para trabajar y disfrutar.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-1 bg-mint-green/10 p-3 rounded-xl border border-mint-green/20 text-center">
+                            <span class="text-xl">📶</span>
+                            <p class="text-[10px] font-bold mt-1 text-mint-green">FREE WIFI</p>
+                        </div>
+                        <div class="flex-1 bg-berry-pink/10 p-3 rounded-xl border border-berry-pink/20 text-center">
+                            <span class="text-xl">🐾</span>
+                            <p class="text-[10px] font-bold mt-1 text-berry-pink">PET FRIENDLY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
+        <div class="bg-white px-4 py-2 rounded-2xl shadow-xl text-[10px] font-bold uppercase tracking-widest border border-gray-100 mb-1 hidden md:block">
+            ¿Hacemos tu pedido? 🥤
+        </div>
+        <a href="https://wa.me/tu-numero" target="_blank" 
+           class="bg-[#25D366] w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform squishy">
+            <svg width="30" height="30" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+        </a>
+    </div>
+
+</body>
 </html>
